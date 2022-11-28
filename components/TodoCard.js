@@ -21,7 +21,7 @@ export default function TodoCard(props) {
 
   useEffect(() => {
     setSubTasks(todos[todoKey].subtasks);
-  });
+  }, []);
 
   function toggle() {
     setAddSubTask(!addSubTask);
@@ -67,7 +67,7 @@ export default function TodoCard(props) {
               <ol>
                 {subTasks.map((task, i) => {
                   return (
-                    <div className="subtask-item">
+                    <div className="subtask-item" key={i}>
                       <li key={i}>{task}</li>
                       <MdDelete
                         className="del-icon"
